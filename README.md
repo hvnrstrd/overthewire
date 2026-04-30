@@ -1,1 +1,1 @@
-# overthewire wargames — writeups
+# overthewire wargames writeups
