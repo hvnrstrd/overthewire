@@ -26,7 +26,7 @@ That was it, the password was sitting there in plaintext.
 
 Plaintext passwords in files = how 99% of credential leaks start.
 
-A classic real-world example: developers accidentally committing `.env` files with API keys to public GitHub repos. Bots scan GitHub for new commits within seconds and grab any exposed credentials. By the time you realize and rotate the key, it's already been used.
+A classic real-world example: developers accidentally committing `.env` files with API keys to public GitHub repos. Bots scan GitHub for new commits within seconds and grab any exposed credentials. By the time you realize and rotate the key, its already been used.
 
 ```bash
 # Bad: secrets in code
