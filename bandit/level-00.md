@@ -1,18 +1,20 @@
-// Bandit Level 0
+# Bandit Level 0
 
-// What i needed to do
+## What I needed to do
 
-Just log into the Bandit server with provided SSH
+Just log into the Bandit server via SSH. Username, password, host and port are all given on the level page. Basically a warmup.
 
-// Problem details
+## How I solved it
 
+```
+ssh bandit0@bandit.labs.overthewire.org -p 2220
+```
+Connection details:
 - Host: `bandit.labs.overthewire.org`
 - Port: `2220`
 - Username: `bandit0`
-- Password: `bandit0` (provided on the level page)
+- Password: `bandit0`
 
-// How to solve this problem
+## Thougts
 
-```bash
-ssh bandit0@bandit.labs.overthewire.org -p 2220
-```
+just nothing to say at all
