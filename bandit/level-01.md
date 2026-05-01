@@ -2,39 +2,37 @@
 
 ## What I needed to do
 
-After logging in as bandit0, find the password for bandit1. The level page said it's stored in a file called `readme` in the home directory.
+Find the password for bandit1. Level page said it's in a file called `readme` in the home directory.
 
 ## How I solved it
-
-Once connected via SSH, I just listed the files and read it:
 
 ```bash
 ls
 cat readme
 ```
 
-That was it, the password was sitting there in plaintext.
+Password was just sitting there in a plain text file. That's it.
 
 ## Notes
 
-- `ls` shows files in the current directory
-- `cat filename` prints the file content to terminal
-- The home directory after SSH login is usually `/home/username`, you start there automatically
-- `pwd` (print working directory) is useful to confirm where you are
+- `ls` lists files in current directory
+- `cat filename` prints file content to terminal
+- After SSH login you always start in `/home/username`
+- `pwd` shows where you are if you get lost
 
 ## Thoughts
 
-Plaintext passwords in files = how 99% of credential leaks start.
+Plaintext passwords in files = how most credential leaks start.
 
-A classic real-world example: developers accidentally committing `.env` files with API keys to public GitHub repos. Bots scan GitHub for new commits within seconds and grab any exposed credentials. By the time you realize and rotate the key, its already been used.
+Real example: dev commits `.env` file with API keys to a public GitHub repo. Bots watch GitHub 24/7 and grab new secrets within seconds. By the time you notice and rotate the key, its already gone.
 
 ```bash
-# Bad: secrets in code
+# bad
 DB_PASSWORD="super_secret_123"
 
-# Better: load from env at runtime
+# better
 DB_PASSWORD="$DB_PASSWORD"
 
-# Best: fetch from a secret manager
+# best
 DB_PASSWORD=$(vault kv get -field=password secret/db)
 ```

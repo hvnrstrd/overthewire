@@ -10,20 +10,20 @@ Read a file called `-` (just a dash) in the home directory.
 cat ./-
 ```
 
-The `./` tells `cat` "this is a path to a file in the current directory", not a flag. The dash is now treated as a filename, not stdin.
+`./` makes it a path, not a flag. Without it, `cat -` just waits for keyboard input forever.
 
 ## Notes
 
-- `-` as an argument often means stdin in Unix tools
-- `./filename` is the safe way to read files with weird names (starting with `-`, special chars, etc.)
-- Other ways to do the same thing:
-  - `cat < -` (redirect stdin from file)
+- `-` in most Unix tools means "read from stdin", not a file
+- `./filename` is the safe way to handle files with weird names
+- Other ways that work:
+  - `cat < -` (redirect from file)
   - `cat "$(pwd)/-"` (full path)
-  - `cat -- -` (some tools accept `--` as "end of flags")
+  - `cat -- -` (double dash = end of flags)
 
 ## Thoughts
 
-Weird filenames are a classic attack vector `; rm -rf /` as a filename has broken plenty of scripts that didn't quote their variables.
+Weird filenames are a real attack vector. A file named `; rm -rf /` has killed plenty of scripts that didn't quote variables.
 
 ```bash
 filename="my file.txt"
@@ -32,8 +32,6 @@ rm $filename
 # rm: cannot remove 'my': No such file or directory
 # rm: cannot remove 'file.txt': No such file or directory
 
-# vs
-
 rm "$filename"
-# works properly
+# works
 ```
