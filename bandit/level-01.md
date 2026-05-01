@@ -8,10 +8,10 @@ After logging in as bandit0, find the password for bandit1. The level page said 
 
 Once connected via SSH, I just listed the files and read it:
 
-​```bash
+```bash
 ls
 cat readme
-​```
+```
 
 That was it, the password was sitting there in plaintext.
 

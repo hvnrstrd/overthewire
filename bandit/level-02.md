@@ -6,9 +6,9 @@ Read a file called `-` (just a dash) in the home directory.
 
 ## How I solved it
 
-​```bash
+```bash
 cat ./-
-​```
+```
 
 The `./` tells `cat` "this is a path to a file in the current directory", not a flag. The dash is now treated as a filename, not stdin.
 
