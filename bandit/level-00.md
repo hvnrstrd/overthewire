@@ -6,9 +6,10 @@ Just log into the Bandit server via SSH. Username, password, host and port are a
 
 ## How I solved it
 
-```
+```bash
 ssh bandit0@bandit.labs.overthewire.org -p 2220
 ```
+
 Connection details:
 - Host: `bandit.labs.overthewire.org`
 - Port: `2220`

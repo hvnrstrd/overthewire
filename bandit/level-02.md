@@ -25,7 +25,7 @@ The `./` tells `cat` "this is a path to a file in the current directory", not a 
 
 Weird filenames are a classic attack vector `; rm -rf /` as a filename has broken plenty of scripts that didn't quote their variables.
 
-​```bash
+```bash
 filename="my file.txt"
 
 rm $filename
@@ -36,4 +36,4 @@ rm $filename
 
 rm "$filename"
 # works properly
-​```
+```
